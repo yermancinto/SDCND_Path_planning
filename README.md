@@ -1,145 +1,128 @@
-# CarND-Path-Planning-Project
-Self-Driving Car Engineer Nanodegree Program
+# SDCND_Path_planning_project
+
+
+<p align="center">
+<img align="center" width="500"  src="https://user-images.githubusercontent.com/41348711/83053927-d71cb780-a051-11ea-8c60-b58350fbf443.JPG">
+
+### Code sequence
+
+#### 1. Load map 
+
+**File: Map.cpp**; 
+**Function: load_map()**;
+
+**Highway_map.csv** file provides the x and y coordinates for each waypoint. In addition to these coordiantes, the file gives the coordinates of the unit vector (dx,dy) that defines the *d* direcction in Frenet coordinates for each Waypoint (orange arrow in the next picture - counterclokwise positive); 
+
+This unit vector cannot be used to generate a continous channel , but calculating theta as *tetha=atan(dx/dy)*  we can generate a continous channel . Just have to consider that the code needs to be modified to deal with the offset produced at PI ahgle(180 degrees-see plts below).
+
+Picture below shows the Waypoints coordinates in blue color, the direction of travel marked as a white arrow and two samples of this theta angle (marked in orange colour)
+
+<p align="center">
+<img width="450"  src="https://user-images.githubusercontent.com/41348711/83170868-81114800-a115-11ea-986b-57d48134f2ce.png">
+
+The aim of these process is get x,y and tetha as a function of s frenet corrdinate:
+* *x=x(s)*;
+* *y=y(s)*;
+* *tetha=tetha(s)*;
+
+The splines are generated using *spline.h* function
+
+<p align="center">
+<img width="800" src="https://user-images.githubusercontent.com/41348711/83174951-75288480-a11b-11ea-9cba-e839f5e0d070.png">
+ 
+  
+<p align="center"> 
+<img width="800" alt="tetha   tetha corrected" src="https://user-images.githubusercontent.com/41348711/83437765-9c939000-a440-11ea-8f3d-87e18f6bafc0.png">
+
+
+#### 2.	Finite State Machine (FSM)
+
+**File: fsm.h**; 
+
+FSM is programmed using the code from Michael Egli (MIT). The schema below summarizes the states and the possible transitions.
+
+<p align="center"> 
+<img width="400" src="https://user-images.githubusercontent.com/41348711/83362376-1704d700-a391-11ea-8468-2095ecb82e89.JPG">
+
+The table below summarizes the triggers that promote the state change.
+
+
+| From State       		|To State	     					|Trigger      |Guard(condition)                                | 
+|:------------------:|:-----------------:|:-----------:| :---------------------------------------------:| 
+| Keep Lane         	|Keep Lane   							|Clear        | TRUE                                           | 
+| Keep Lane         	|Lane change Left 		|Vehicle ahead| is posible to change to left lane |                                 
+| Keep Lane         	|Lane change Right  |Vehicle ahead| is posible to change to right lane  |                                         
+| Keep Lane         	|Follow Vehicle   		|Vehicle ahead| no possibility to change lane      | 
+| Lane change Left  	|Keep Lane          |Clear        | TRUE  |                                         
+| Lane change Left 	 |Follow Vehicle   		|Vehicle ahead| TRUE      |
+| Lane change Right  |Keep Lane          |Clear        | TRUE  |                                         
+| Lane change Right 	|Follow Vehicle   		|Vehicle ahead| TRUE      |
+| Follow Vehicle 	   |Follow Vehicle   		|Vehicle ahead| no possibility to change lane      |
+| Follow Vehicle  	  |Keep Lane          |Clear        | TRUE  |                                         
+| Follow Vehicle 	   |Lane change Left 		|Vehicle ahead| is posible to change to left lane      |
+| Follow Vehicle 	   |Lane change Right 	|Vehicle ahead| is posible to change to right lane      |
+
+
+#### 3.	Initial and final states 
+
+**File: main.cpp**; 
+Prior to the trajectory generation, we have to define the initial and the final states of the next trajectory.
+For the first iteration we use static vehicle conditions as initial state, but once ego vehicle starts moving , the final state of the previous path is used as an initial state for the next state. My code generates 50 points paths, and uses remaining points from previous path.
+
+* Final d state {d,d´,d´´}:
+
+Once the data is received from telemetry,the environment of the ego vehicle is checked searching any vehicle in front of us. In case a vehicle is detected at 50 meters or closer (tunable parameter through variables.h file), we start checking left and right lanes in anticipation to a lane change.
+
+Then, FSM is triggered using the vehicle_ahead variable, taking into account the conditions mentioned in table above. As an output 
+we receive the intended lane in the next update loop (d).
+
+To simplify the code, final d velocity (d´) and d acceleration (d´´) are set to zero.
+
+<p align="center"> 
+<img width="500" src="https://user-images.githubusercontent.com/41348711/83552111-8ac9ef80-a509-11ea-96e4-a0484215cdb7.png">
+
+
+To calculate the final s state a switch case piece of code is used. Depending on the 
+  
+* Final s state {s,s´,s´´}:
+ 
+Final s state is calculated as a function of the final state in the previous path, considering speed and acceleration limits.
+
+#### 3.	Trajectory generation
+
+**File: trajectoy_planner.cpp**; 
+
+
+Once initial and final states are stated in frenet coordinates, the code under *trajectory_planner.cpp*:
+
+1) Calculates Jerk minimizing s and d trajectories
+2) Uses the funcions x(s), y(s),tetha(s) (mentioned in point #1) to transform Frenet coordinates to 0.02 equispaced cartesian coordinates
+
+Finally cartesian trajectory points are loaded into the ego vehicle
+
+#### 	Rubric points:
+
+
+* [X] The car is able to drive at least 4.32 miles without incident:
+
+    The car is able to driver aroung 10 miles, although there is still singular situations that cause collision with other vehicles.      This shall be a future improvement 
+    
+* [X] The car drives according to the speed limit:
+
+    Setting a maximum speed of 85% of the maximum alowed speed, ego vehicle keeps inside the speed limit
+    
+* [X] Max Acceleration and Jerk are not Exceeded :
+
+    The code inside the swicth case function guarantees neither jerk, nor acceleration are exceed.
+    
+* [X] Car does not have collisions:
+
+    The car is able to detect vehicles in front and sideways. Actually the vehicle is not able to avoid a collision if any surrounding    vehicle intersecs an actual driving path. This is also an improvement to be performed.
+    
+* [X] The car stays in its lane, except for the time between changing lanes:
+
+   The car stays in lanes except for lane changing
    
-### Simulator.
-You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).  
+* [X] The car is able to change lanes:
 
-To run the simulator on Mac/Linux, first make the binary file executable with the following command:
-```shell
-sudo chmod u+x {simulator_file_name}
-```
-
-### Goals
-In this project your goal is to safely navigate around a virtual highway with other traffic that is driving +-10 MPH of the 50 MPH speed limit. You will be provided the car's localization and sensor fusion data, there is also a sparse map list of waypoints around the highway. The car should try to go as close as possible to the 50 MPH speed limit, which means passing slower traffic when possible, note that other cars will try to change lanes too. The car should avoid hitting other cars at all cost as well as driving inside of the marked road lanes at all times, unless going from one lane to another. The car should be able to make one complete loop around the 6946m highway. Since the car is trying to go 50 MPH, it should take a little over 5 minutes to complete 1 loop. Also the car should not experience total acceleration over 10 m/s^2 and jerk that is greater than 10 m/s^3.
-
-#### The map of the highway is in data/highway_map.txt
-Each waypoint in the list contains  [x,y,s,dx,dy] values. x and y are the waypoint's map coordinate position, the s value is the distance along the road to get to that waypoint in meters, the dx and dy values define the unit normal vector pointing outward of the highway loop.
-
-The highway's waypoints loop around so the frenet s value, distance along the road, goes from 0 to 6945.554.
-
-## Basic Build Instructions
-
-1. Clone this repo.
-2. Make a build directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./path_planning`.
-
-Here is the data provided from the Simulator to the C++ Program
-
-#### Main car's localization Data (No Noise)
-
-["x"] The car's x position in map coordinates
-
-["y"] The car's y position in map coordinates
-
-["s"] The car's s position in frenet coordinates
-
-["d"] The car's d position in frenet coordinates
-
-["yaw"] The car's yaw angle in the map
-
-["speed"] The car's speed in MPH
-
-#### Previous path data given to the Planner
-
-//Note: Return the previous list but with processed points removed, can be a nice tool to show how far along
-the path has processed since last time. 
-
-["previous_path_x"] The previous list of x points previously given to the simulator
-
-["previous_path_y"] The previous list of y points previously given to the simulator
-
-#### Previous path's end s and d values 
-
-["end_path_s"] The previous list's last point's frenet s value
-
-["end_path_d"] The previous list's last point's frenet d value
-
-#### Sensor Fusion Data, a list of all other car's attributes on the same side of the road. (No Noise)
-
-["sensor_fusion"] A 2d vector of cars and then that car's [car's unique ID, car's x position in map coordinates, car's y position in map coordinates, car's x velocity in m/s, car's y velocity in m/s, car's s position in frenet coordinates, car's d position in frenet coordinates. 
-
-## Details
-
-1. The car uses a perfect controller and will visit every (x,y) point it recieves in the list every .02 seconds. The units for the (x,y) points are in meters and the spacing of the points determines the speed of the car. The vector going from a point to the next point in the list dictates the angle of the car. Acceleration both in the tangential and normal directions is measured along with the jerk, the rate of change of total Acceleration. The (x,y) point paths that the planner recieves should not have a total acceleration that goes over 10 m/s^2, also the jerk should not go over 50 m/s^3. (NOTE: As this is BETA, these requirements might change. Also currently jerk is over a .02 second interval, it would probably be better to average total acceleration over 1 second and measure jerk from that.
-
-2. There will be some latency between the simulator running and the path planner returning a path, with optimized code usually its not very long maybe just 1-3 time steps. During this delay the simulator will continue using points that it was last given, because of this its a good idea to store the last points you have used so you can have a smooth transition. previous_path_x, and previous_path_y can be helpful for this transition since they show the last points given to the simulator controller with the processed points already removed. You would either return a path that extends this previous path or make sure to create a new path that has a smooth transition with this last path.
-
-## Tips
-
-A really helpful resource for doing this project and creating smooth trajectories was using http://kluge.in-chemnitz.de/opensource/spline/, the spline function is in a single hearder file is really easy to use.
-
----
-
-## Dependencies
-
-* cmake >= 3.5
-  * All OSes: [click here for installation instructions](https://cmake.org/install/)
-* make >= 4.1
-  * Linux: make is installed by default on most Linux distros
-  * Mac: [install Xcode command line tools to get make](https://developer.apple.com/xcode/features/)
-  * Windows: [Click here for installation instructions](http://gnuwin32.sourceforge.net/packages/make.htm)
-* gcc/g++ >= 5.4
-  * Linux: gcc / g++ is installed by default on most Linux distros
-  * Mac: same deal as make - [install Xcode command line tools]((https://developer.apple.com/xcode/features/)
-  * Windows: recommend using [MinGW](http://www.mingw.org/)
-* [uWebSockets](https://github.com/uWebSockets/uWebSockets)
-  * Run either `install-mac.sh` or `install-ubuntu.sh`.
-  * If you install from source, checkout to commit `e94b6e1`, i.e.
-    ```
-    git clone https://github.com/uWebSockets/uWebSockets 
-    cd uWebSockets
-    git checkout e94b6e1
-    ```
-
-## Editor Settings
-
-We've purposefully kept editor configuration files out of this repo in order to
-keep it as simple and environment agnostic as possible. However, we recommend
-using the following settings:
-
-* indent using spaces
-* set tab width to 2 spaces (keeps the matrices in source code aligned)
-
-## Code Style
-
-Please (do your best to) stick to [Google's C++ style guide](https://google.github.io/styleguide/cppguide.html).
-
-## Project Instructions and Rubric
-
-Note: regardless of the changes you make, your project must be buildable using
-cmake and make!
-
-
-## Call for IDE Profiles Pull Requests
-
-Help your fellow students!
-
-We decided to create Makefiles with cmake to keep this project as platform
-agnostic as possible. Similarly, we omitted IDE profiles in order to ensure
-that students don't feel pressured to use one IDE or another.
-
-However! I'd love to help people get up and running with their IDEs of choice.
-If you've created a profile for an IDE that you think other students would
-appreciate, we'd love to have you add the requisite profile files and
-instructions to ide_profiles/. For example if you wanted to add a VS Code
-profile, you'd add:
-
-* /ide_profiles/vscode/.vscode
-* /ide_profiles/vscode/README.md
-
-The README should explain what the profile does, how to take advantage of it,
-and how to install it.
-
-Frankly, I've never been involved in a project with multiple IDE profiles
-before. I believe the best way to handle this would be to keep them out of the
-repo root to avoid clutter. My expectation is that most profiles will include
-instructions to copy files to a new location to get picked up by the IDE, but
-that's just a guess.
-
-One last note here: regardless of the IDE used, every submitted project must
-still be compilable with cmake and make./
-
-## How to write a README
-A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
+   FSM is working propertly
