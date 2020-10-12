@@ -1,0 +1,246 @@
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wshorten64to32 failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_17dc2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_17dc2.dir/build.make CMakeFiles/cmTC_17dc2.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_17dc2.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -DCOMPILER_SUPPORT_Wshorten64to32 -Werror   -Wshorten-64-to-32 -o CMakeFiles/cmTC_17dc2.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wshorten-64-to-32'
+CMakeFiles/cmTC_17dc2.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_17dc2.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_17dc2.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_17dc2/fast' failed
+make: *** [cmTC_17dc2/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wenumconversion failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d4f49/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d4f49.dir/build.make CMakeFiles/cmTC_d4f49.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d4f49.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wenumconversion -Werror   -Wenum-conversion -o CMakeFiles/cmTC_d4f49.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wenum-conversion'; did you mean '-Wno-conversion'?
+CMakeFiles/cmTC_d4f49.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d4f49.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_d4f49.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d4f49/fast' failed
+make: *** [cmTC_d4f49/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Wcpp11extensions failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f1667/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f1667.dir/build.make CMakeFiles/cmTC_f1667.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f1667.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -DCOMPILER_SUPPORT_Wcpp11extensions -Werror   -Wc++11-extensions -o CMakeFiles/cmTC_f1667.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Wc++11-extensions'; did you mean '-fms-extensions'?
+CMakeFiles/cmTC_f1667.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_f1667.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_f1667.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f1667/fast' failed
+make: *** [cmTC_f1667/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd981 failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_86fe3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_86fe3.dir/build.make CMakeFiles/cmTC_86fe3.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_86fe3.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd981 -Werror   -wd981 -o CMakeFiles/cmTC_86fe3.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd981'
+CMakeFiles/cmTC_86fe3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_86fe3.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_86fe3.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_86fe3/fast' failed
+make: *** [cmTC_86fe3/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_wd2304 failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d0db9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d0db9.dir/build.make CMakeFiles/cmTC_d0db9.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d0db9.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_wd2304 -Werror   -wd2304 -o CMakeFiles/cmTC_d0db9.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-wd2304'
+CMakeFiles/cmTC_d0db9.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d0db9.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_d0db9.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d0db9/fast' failed
+make: *** [cmTC_d0db9/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_STRICTANSI failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2a1bc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2a1bc.dir/build.make CMakeFiles/cmTC_2a1bc.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2a1bc.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_STRICTANSI -Werror   -strict-ansi -o CMakeFiles/cmTC_2a1bc.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-strict-ansi'; did you mean '-fstrict-enums'?
+CMakeFiles/cmTC_2a1bc.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_2a1bc.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_2a1bc.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_2a1bc/fast' failed
+make: *** [cmTC_2a1bc/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Performing C++ SOURCE FILE Test COMPILER_SUPPORT_Qunusedarguments failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ba2df/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ba2df.dir/build.make CMakeFiles/cmTC_ba2df.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ba2df.dir/src.cxx.o
+/usr/bin/c++    -pedantic -Wall -Wextra -Wundef -Wcast-align -Wchar-subscripts -Wnon-virtual-dtor -Wunused-local-typedefs -Wpointer-arith -Wwrite-strings -Wformat-security -Wlogical-op -Wdouble-promotion -Wno-psabi -Wno-variadic-macros -Wno-long-long -fno-check-new -fno-common -fstrict-aliasing -DCOMPILER_SUPPORT_Qunusedarguments -Werror   -Qunused-arguments -o CMakeFiles/cmTC_ba2df.dir/src.cxx.o -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/src.cxx
+c++: error: unrecognized command line option '-Qunused-arguments'; did you mean '-Wunused-parameter'?
+CMakeFiles/cmTC_ba2df.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_ba2df.dir/src.cxx.o' failed
+make[1]: *** [CMakeFiles/cmTC_ba2df.dir/src.cxx.o] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ba2df/fast' failed
+make: *** [cmTC_ba2df/fast] Error 2
+
+Source file was:
+int main() { return 0; }
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -v 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -fpp 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -v 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -c 
+
+The output was:
+No such file or directory
+
+
+Compiling the Fortran compiler identification source file "CMakeFortranCompilerId.F" failed.
+Compiler: CMAKE_Fortran_COMPILER-NOTFOUND 
+Build flags: 
+Id flags: -fpp 
+
+The output was:
+No such file or directory
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9fe6b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9fe6b.dir/build.make CMakeFiles/cmTC_9fe6b.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9fe6b.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_9fe6b.dir/CheckSymbolExists.c.o   -c /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_9fe6b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9fe6b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9fe6b.dir/CheckSymbolExists.c.o  -o cmTC_9fe6b 
+CMakeFiles/cmTC_9fe6b.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_9fe6b.dir/build.make:97: recipe for target 'cmTC_9fe6b' failed
+make[1]: *** [cmTC_9fe6b] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9fe6b/fast' failed
+make: *** [cmTC_9fe6b/fast] Error 2
+
+File /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_310ca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_310ca.dir/build.make CMakeFiles/cmTC_310ca.dir/build
+make[1]: Entering directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_310ca.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_310ca.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_310ca
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_310ca.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_310ca.dir/CheckFunctionExists.c.o  -o cmTC_310ca -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_310ca.dir/build.make:97: recipe for target 'cmTC_310ca' failed
+make[1]: *** [cmTC_310ca] Error 1
+make[1]: Leaving directory '/home/german/CarND-Path-Planning-Project/src/Eigen-3.3/build_dir/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_310ca/fast' failed
+make: *** [cmTC_310ca/fast] Error 2
+
+
